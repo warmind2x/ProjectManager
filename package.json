@@ -1,0 +1,19 @@
+{
+  "name": "ProjectManager",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "core-js": "^3.15.1",
+    "foundation-sites": "^6.7.4",
+    "jquery": "^3.6.0",
+    "nuxt": "^2.15.7",
+    "what-input": "^5.2.10"
+  }
+}
