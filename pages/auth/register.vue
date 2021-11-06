@@ -4,7 +4,7 @@
         <div class="grid-x grid-margin-x">
             <div class="cell small-4">
                 <label>Usuario
-                    <input type="text" placeholder="Ingrese Usuario" aria-describedby="usuarioHelpText" v-model="register.usuario">
+                    <input type="text" placeholder="Ingrese Usuario" aria-describedby="usuarioHelpText" v-model="user.usuario">
                 </label>
                 <p class="help-text" id="usuarioHelpText">Ingresa tu nombre de usuario</p>
             </div>
@@ -13,7 +13,7 @@
         <div class="grid-x grid-margin-x">
             <div class="cell small-4">
                 <label>Email
-                    <input type="email" placeholder="Ingrese Correo" aria-describedby="emailHelpText" v-model="register.email">
+                    <input type="email" placeholder="Ingrese Correo" aria-describedby="emailHelpText" v-model="user.email">
                 </label>
                 <p class="help-text" id="emailHelpText">Ingresa tu Email</p>
             </div>
@@ -22,7 +22,7 @@
         <div class="grid-x grid-margin-x">
             <div class="cell small-4">
                 <label>Password
-                    <input type="password" placeholder="Ingrese Password" aria-describedby="passHelpText" v-model="register.password">
+                    <input type="password" placeholder="Ingrese Password" aria-describedby="passHelpText" v-model="user.password">
                 </label>
                 <p class="help-text" id="passHelpText">Ingresa tu password (A-Z, a-z, 0-9)</p>
             </div>
@@ -47,7 +47,7 @@ export default {
     layout: "auth",
     data() {
         return {
-            register: {
+            user: {
                 usuario:"",
                 email:"",
                 password:""
@@ -57,6 +57,18 @@ export default {
     methods: {
         register() {
             // logica axios para registrar en base de datos
+
+            this.$axios
+                .post("/register", this.user)
+                .then((result) => {
+                    
+                }).catch((err) => {
+                    
+                });
+            console.log('Se esta registrando ' + this.user.usuario);
+            this.user.usuario = "";
+            this.user.email = "";
+            this.user.password = "";
             
         }
     },
