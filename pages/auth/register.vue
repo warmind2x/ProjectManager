@@ -36,6 +36,21 @@
       <div class="grid-x grid-margin-x">
         <div class="cell small-4">
           <label
+            >User ID
+            <input
+              type="text"
+              placeholder="Ingrese UserID"
+              aria-describedby="useridHelpText"
+              v-model="user.userId"
+            />
+          </label>
+          <p class="help-text" id="useridHelpText">Ingresa tu User ID</p>
+        </div>
+      </div>
+
+      <div class="grid-x grid-margin-x">
+        <div class="cell small-4">
+          <label
             >Password
             <input
               type="password"
@@ -70,6 +85,7 @@ export default {
         usuario: "",
         email: "",
         password: "",
+        userId:""
       },
     };
   },
@@ -89,16 +105,18 @@ export default {
         .catch((err) => {
           console.log(err.response.data);
           if (err.response.data.error.errors.email.kind == "unique") {
-            alert("E-mail ya existe");
+            alert("E-mail o User ID ya existe");
             this.user.usuario = "";
             this.user.email = "";
             this.user.password = "";
+            this.user.userId = "";
           }
         });
       console.log("Se esta registrando " + this.user.usuario);
       this.user.usuario = "";
       this.user.email = "";
       this.user.password = "";
+      this.user.userId = "";
     },
   },
 };

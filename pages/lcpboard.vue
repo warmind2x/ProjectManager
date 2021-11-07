@@ -1,17 +1,13 @@
 <template>
   <div>
-    <div>
-      <Menu/>
-    </div>
-    
-      
-    
-      <Nuxt />
+
   </div>
 </template>
 
 <script>
 export default {
+    middleware: 'Auth',
+    name: 'lcp_board'
 
 }
 </script>

@@ -25,13 +25,14 @@ app.use(cors());
 
 //express routes
 app.use("/api", require("./routes/users.js"));
+app.use("/api", require("./routes/projects"));
 
 module.exports = app;
 
 //Mongo Connection
 const mongoUserName = "devuser";
 const mongoPassword = "devpassword";
-const mongoHost = "127.0.0.1";
+const mongoHost = "192.168.1.101";
 const mongoPort = "27017";
 const mongoDatabase = "warmind2x_test_db";
 

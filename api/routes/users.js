@@ -66,6 +66,7 @@ router.post("/register", async (req, res) => {
       const usuario = req.body.usuario
       const email = req.body.email;
       const password = req.body.password;
+      const userId = req.body.userId;
       const encryptedPassword = bcrypt.hashSync(password, 10);
       const created = Date.now()
   
@@ -74,6 +75,7 @@ router.post("/register", async (req, res) => {
         email: email,
         usuario: usuario,
         password: encryptedPassword,
+        userId: userId,
         created: created
       };
   

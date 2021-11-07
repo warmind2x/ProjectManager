@@ -7,12 +7,13 @@ const userSchema = new Schema({
   usuario: { type: String, required: [true] },
   email: { type: String, required: [true], unique: true},
   password: {  type: String, required: [true]},
+  userId: {type: String, required: [true], unique: true},
   created: {type: Date}
 });
 
 
 //Validator
-userSchema.plugin(uniqueValidator, { message: 'Error, email already exists.'});
+userSchema.plugin(uniqueValidator, { message: 'Error, email or userID already exists.'});
 
 
 // convert to model
