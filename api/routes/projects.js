@@ -20,7 +20,7 @@ router.post("/project", checkAuth, async (req, res) => {
       var newProject = req.body.newProject;
       
   
-      const device = await Project.create(newProject);
+      const project = await Project.create(newProject);
   
       
   
@@ -41,6 +41,37 @@ router.post("/project", checkAuth, async (req, res) => {
       return res.status(500).json(response);
     }
   });
+
+  //GET DEVICES
+router.get("/project", checkAuth, async (req, res) => {
+  try {
+    const userId = req.userData.userId;
+
+    //get devices
+    var projects = await Project.find({ userId: userId });
+
+    //mongoose array to js array
+    projects = JSON.parse(JSON.stringify(projects));
+
+   
+    const response = {
+      status: "success",
+      data: projects
+    };
+
+    res.json(response);
+  } catch (error) {
+    console.log("ERROR GETTING DEVICES");
+    console.log(error);
+
+    const response = {
+      status: "error",
+      error: error
+    };
+
+    return res.status(500).json(response);
+  }
+});
 
 
 
