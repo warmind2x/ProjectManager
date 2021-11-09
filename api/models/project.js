@@ -11,9 +11,9 @@ const projectSchema = new Schema({
   grafoCap: {type: Number, default: 0},
   grafoExp: {type: Number, default: 0},
   locacion: {type: String, required:[true]},
-  projectType: {type: String, required:[true]},
+  projectType: {type: String},
   nombre: {type: String, required:[true]},
-  status: {type: Boolean, required:[true]},
+  status: {type: String, required:[true]},
   created: {type: Date, default: Date.now()}
 });
 

@@ -18,6 +18,7 @@ import Project from "../models/project";
 router.post("/project", checkAuth, async (req, res) => {
     try {
       var newProject = req.body.newProject;
+      console.log(newProject);
       
   
       const project = await Project.create(newProject);
